@@ -1,11 +1,13 @@
 //version3-integrative_practice-passport
 import express from 'express';
 import session from 'express-session';
-import mongoose from './config/connect.js';
+import { engine } from 'express-handlebars';
+import mongoose from './config/connectMongodb.js';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import sessionsRouter from './routes/sessions.js';
-
+import viewsRouter from './routes/views.js';
+import initializePassport from './config/passport.js';
 
 
 const app = express()
