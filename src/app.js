@@ -1,5 +1,4 @@
-//On branch version2
-//clase5_integrative_practice 
+//version3-integrative_practice-passport
 import express from 'express';
 import session from 'express-session';
 import mongoose from './config/connect.js';
