@@ -7,6 +7,7 @@ import passport from 'passport';
 import sessionsRouter from './routes/sessions.js';
 import viewsRouter from './routes/views.js';
 import initializePassport from './config/passport.js';
+import { generateToken, authToken } from './config/jwtUtils.js';
 
 
 const app = express()
@@ -39,6 +40,11 @@ app.use(passport.session());
 
 app.use('/api/sessions', sessionsRouter);
 app.use('/', viewsRouter);
+
+app.get("/current", authToken, (req, res) => {
+    res.send({ status: "success", payload: req.user });
+})  
+
 
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
