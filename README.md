@@ -47,6 +47,8 @@ http://localhost:8080/login
 
 
 -----------------------------------------------------------------------
+1.REGISTRAR USUARIO
+-----------------------------------------------------------------------
 
 http://localhost:8080/register (register.hbs)
 Registro - Administrador
@@ -57,15 +59,23 @@ Nombre:
  Contraseña: 
  Registrarse
 Iniciar sesión
-
-
-
+--
+salta a:
+--
 http://localhost:8080/api/sessions/register (sessions.js)
 {
   "status": "success",
   "message": "usuario registrado"
 }
----
+--
+se actualiza
+--
+http://localhost:8080/failregister
+Cannot GET /failregister
+
+
+
+
 (sessions.js)
 router.post('/register', passport.authenticate('register', { failureRedirect: '/failregister' }), async (req, res) => {
     res.send({ status: "success", message: "usuario registrado" });
@@ -82,3 +92,13 @@ http://localhost:8080/login (login.hbs)
 
 
 http://localhost:8080/api/sessions/register
+
+
+
+
+
+
+//
+npm install bcrypt bcryptjs connect-mongo express express-handlebars express-session mongoose passport passport-local
+
+11.09.24.22.06
