@@ -201,6 +201,29 @@ http://localhost:8080/api/sessions/register
 
 
 //
-npm install bcrypt bcryptjs connect-mongo express express-handlebars express-session mongoose passport passport-local
+npm install bcrypt bcryptjs connect-mongo express express-handlebars express-session mongoose passport passport-local jsonwebtoken
 
 11.09.24.22.06
+
+
+12.09.24.1543
+jsonwebtoken
+
+localhost:8080/register
+name
+email
+password
+
+
+token
+{
+"access_token": "XXXX"
+}
+
+
+localhost:8080/login
+{
+"access_token": "XXXX"
+}
+
+
