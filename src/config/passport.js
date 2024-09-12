@@ -10,7 +10,8 @@ const initializePassport = () => {
         passReqToCallback: true,
         usernameField: 'email'
     }, async (req, username, password, done) => {
-        const { first_name, last_name, email, role } = req.body;
+        //age
+        const { first_name, last_name, email, age, role } = req.body;
         try {
             let user = await userService.findOne({ email: username });
             if (user) {
@@ -21,6 +22,8 @@ const initializePassport = () => {
                 first_name,
                 last_name,
                 email,
+                //age
+                age,
                 role,
                 password: createHash(password)
             }

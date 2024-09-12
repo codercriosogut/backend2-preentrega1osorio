@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     first_name: String,
     last_name: String,
     email: { type: String, unique: true },
+    // age: Number
+    age: Number,
     role: String,
     password: String,
 });
