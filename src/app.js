@@ -1,4 +1,3 @@
-//version3-integrative_practice-passport
 import express from 'express';
 import session from 'express-session';
 import { engine } from 'express-handlebars';
