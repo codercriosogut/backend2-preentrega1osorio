@@ -22,7 +22,6 @@ router.post('/login', passport.authenticate('login', { failureRedirect: '/faillo
         last_name: req.user.last_name,
         role: req.user.role,
         email: req.user.email,
-        //
         age: req.user.age
     }
     res.send({ status: "success", payload: req.user });

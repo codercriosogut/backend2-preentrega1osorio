@@ -22,7 +22,6 @@ const initializePassport = () => {
                 first_name,
                 last_name,
                 email,
-                //age
                 age,
                 role,
                 password: createHash(password)
