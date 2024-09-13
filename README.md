@@ -228,6 +228,13 @@ localhost:8080/login
 
 
 //
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 testing
 
 POST localhost:8080/register
@@ -243,15 +250,25 @@ body/raw/json
 body 
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJjcmlzIiwiZW1haWwiOiJjb3JyZW9AY29ycmVvLmNsIiwicGFzc3dvcmQiOiIxMjMifSwiaWF0IjoxNzI2MjM5Mjk2LCJleHAiOjE3MjYzMjU2OTZ9.UWotUuNmGx6atv0SQ4l6v8qrjbV1AXb0iamqBHQaPuM"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJjcmlzIiwiZW1haWwiOiJjb3JyZW9AY29ycmVvLmNsIiwicGFzc3dvcmQiOiIxMjMifSwiaWF0IjoxNzI2MjQyOTY3LCJleHAiOjE3MjYzMjkzNjd9.erFhsaUQ-JwthNGORbVDTZSbnPsdoCnnckpMCUs_cJ4"
 }
 
+//
+enviar nuevamente
+//
+{
+    "error": "El usuario ya existe"
+}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 GET localhost:8080/current
 
 Authorization
-Type Bearer Token
+Type 
+Bearer Token
 Token
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJjcmlzIiwiZW1haWwiOiJjb3JyZW9AY29ycmVvLmNsIiwicGFzc3dvcmQiOiIxMjMifSwiaWF0IjoxNzI2MjM5Mjk2LCJleHAiOjE3MjYzMjU2OTZ9.UWotUuNmGx6atv0SQ4l6v8qrjbV1AXb0iamqBHQaPuM
