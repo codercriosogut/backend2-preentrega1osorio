@@ -3,6 +3,7 @@ import local from "passport-local";
 import userService from './schemaUser.js';
 import { createHash, isValidPassword } from './bcryptUtils.js';
 
+
 const localStrategy = local.Strategy;
 
 const initializePassport = () => {

@@ -281,3 +281,16 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJjcmlzIiwiZW1haWwiOiJ
         "password": "123"
     }
 }
+
+
+
+
+REGISTRO POR POSTMAN
+{
+    "first_name": "test1",
+    "last_name": "test1",
+    "email": "test1@email.com",
+    "age": "40",
+    "role": "administrador",
+    "password": "123",
+}

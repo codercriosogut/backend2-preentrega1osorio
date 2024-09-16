@@ -24,6 +24,10 @@ app.set('views', './src/views');
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+/* app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); */
+
+
 app.use(session({
     secret: 'secretkey',
     resave: false,
@@ -41,9 +45,9 @@ app.use(passport.session());
 app.use('/api/sessions', sessionsRouter);
 app.use('/', viewsRouter);
 
-/* app.get("/current", authToken, (req, res) => {
+app.get("/current", authToken, (req, res) => {
     res.send({ status: "success", payload: req.user });
-})  */ 
+})
 
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
