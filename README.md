@@ -292,5 +292,16 @@ REGISTRO POR POSTMAN
     "email": "test1@email.com",
     "age": "40",
     "role": "administrador",
-    "password": "123",
+    "password": "123"
 }
+
+
+
+16.09.24.1336
+nuevos cambios
+{
+  "status": "success",
+  "message": "Usuario registrado",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZpcnN0X25hbWUiOiJheGwiLCJsYXN0X25hbWUiOiJheGwiLCJlbWFpbCI6ImF4bEBlbWFpbC5jb20iLCJhZ2UiOjQwLCJyb2xlIjoidXNlciIsInBhc3N3b3JkIjoiJDJiJDEwJDVTLjlvNEg0Y1JrZWZ2OUVoUkQxTS5oazlDSE9welpubnRNaVRkQ1F5Q3pwaS8uNExsLm5pIiwiX2lkIjoiNjZlODVlNTk4ZjczMWY3YzYwY2JhZTk1IiwiX192IjowfSwiaWF0IjoxNzI2NTA0NTM3LCJleHAiOjE3MjY1OTA5Mzd9.BtUInsiZS3Sbo7qMC5T2zJ2b6fLnhRBmzhdaNJp1gk4"
+}
+

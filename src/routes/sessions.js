@@ -1,12 +1,15 @@
 import { Router } from 'express';
 import passport from 'passport';
+import { generateToken } from '../config/jwtUtils.js';
 
 const router = Router();
 
 router.post('/register', passport.authenticate('register', { failureRedirect: '/failregister' }), async (req, res) => {
-    res.send({ status: "success", message: "usuario registrado" });
-
+    const user = req.user;
+    const access_token = generateToken(user); // Generar el token aquí
+    res.status(201).send({ status: "success", message: "Usuario registrado", access_token });
 });
+
 
 
 router.get('/failregister', async (req, res) => {

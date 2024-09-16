@@ -27,9 +27,11 @@ const initializePassport = () => {
                 password: createHash(password)
             }
             //JWT
-            const access_token = generateToken(newUser);
-            res.status(201).send({ access_token });
-            console.log(user)
+            //ERROR
+            /*             const access_token = generateToken(newUser);
+                        res.status(201).send({ access_token });
+                        console.log(user) */
+            //ERROR
             //JWT
             let result = await userService.create(newUser);
             return done(null, result);
