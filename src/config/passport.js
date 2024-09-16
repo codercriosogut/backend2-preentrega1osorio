@@ -26,13 +26,6 @@ const initializePassport = () => {
                 role,
                 password: createHash(password)
             }
-            //JWT
-            //ERROR
-            /*             const access_token = generateToken(newUser);
-                        res.status(201).send({ access_token });
-                        console.log(user) */
-            //ERROR
-            //JWT
             let result = await userService.create(newUser);
             return done(null, result);
         } catch (error) {
@@ -55,12 +48,6 @@ const initializePassport = () => {
             const user = await userService.findOne({ email: username });
             if (!user) {
                 console.log("el usuario no existe")
-                //JWT
-                const access_token = generateToken(user);
-                res.status(200).send({ access_token });
-                console.log(user)
-                //JWT
-
                 return done(null, false);
             }
             if (!isValidPassword(user, password)) return done(null, false);

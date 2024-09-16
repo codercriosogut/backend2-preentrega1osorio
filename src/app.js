@@ -24,10 +24,6 @@ app.set('views', './src/views');
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-/* app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json()); */
-
-
 app.use(session({
     secret: 'secretkey',
     resave: false,

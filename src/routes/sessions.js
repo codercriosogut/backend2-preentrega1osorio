@@ -27,7 +27,9 @@ router.post('/login', passport.authenticate('login', { failureRedirect: '/faillo
         email: req.user.email,
         age: req.user.age
     }
-    res.send({ status: "success", payload: req.user });
+    // Generar el token aquí
+    const access_token = generateToken(req.user);
+    res.send({ status: "success", payload: req.user, access_token });
 });
 
 
