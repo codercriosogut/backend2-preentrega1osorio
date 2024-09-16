@@ -1,10 +1,11 @@
+ver
+16.09.24.2045
+
 Dependencias:
 npm install bcrypt connect-mongo express express-handlebars express-session jsonwebtoken mongoose passport passport-local 
 
 
 
-ver
-12.09.24.11.13
 
 -----------------------------------------------------------------------
 1.REGISTRAR USUARIO - REGISTER
