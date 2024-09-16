@@ -1,0 +1,108 @@
+VERSION6
+####################################################
+REGISTRO
+####################################################
+
+http://localhost:8080/register
+Registro - Administrador
+ Nombre: cri
+ Apellido: cri
+ Email: cri@email.com
+ Edad: 40
+ Rol: Usuario
+ Contraseña: •••
+ Registrarse
+Iniciar sesión
+
+
+
+
+####################################################
+http://localhost:8080/api/sessions/register
+{
+  "status": "success",
+  "message": "Usuario registrado",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZpcnN0X25hbWUiOiJjcmkiLCJsYXN0X25hbWUiOiJjcmkiLCJlbWFpbCI6ImNyaUBlbWFpbC5jb20iLCJhZ2UiOjQwLCJyb2xlIjoidXNlciIsInBhc3N3b3JkIjoiJDJiJDEwJHlvcUwvNFJ0ZmJMbUFRVFpwZTgwQy5PV0E2MWhBMFRBZUNkOXhyTDZNSnVKS2duRGczVmEyIiwiX2lkIjoiNjZlOGI4MWMwY2FjZjljZTI2ZjEwNDJlIiwiX192IjowfSwiaWF0IjoxNzI2NTI3NTE3LCJleHAiOjE3MjY2MTM5MTd9.J3GPnoOsephSQt6Z0STDiGEQEnVqmMX-_g0Qa4YAJcw"
+}
+
+####################################################
+GET localhost:8080/current
+
+{
+    "status": "success",
+    "payload": {
+        "first_name": "cri",
+        "last_name": "cri",
+        "email": "cri@email.com",
+        "age": 40,
+        "role": "user",
+        "password": "$2b$10$yoqL/4RtfbLmAQTZpe80C.OWA61hA0TAeCd9xrL6MJuJKgnDg3Va2",
+        "_id": "66e8b81c0cacf9ce26f1042e",
+        "__v": 0
+    }
+}
+
+
+
+
+
+
+####################################################
+LOGIN
+####################################################
+http://localhost:8080/login
+Iniciar Sesión - Correo+Password
+Email: 
+cri@email.com
+ Contraseña: 
+•••
+ Ingresar
+Registrarse
+
+####################################################
+http://localhost:8080/api/sessions/login
+{
+  "status": "success",
+  "payload": {
+    "_id": "66e8b81c0cacf9ce26f1042e",
+    "first_name": "cri",
+    "last_name": "cri",
+    "email": "cri@email.com",
+    "age": 40,
+    "role": "user",
+    "password": "$2b$10$yoqL/4RtfbLmAQTZpe80C.OWA61hA0TAeCd9xrL6MJuJKgnDg3Va2",
+    "__v": 0
+  },
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2ZThiODFjMGNhY2Y5Y2UyNmYxMDQyZSIsImZpcnN0X25hbWUiOiJjcmkiLCJsYXN0X25hbWUiOiJjcmkiLCJlbWFpbCI6ImNyaUBlbWFpbC5jb20iLCJhZ2UiOjQwLCJyb2xlIjoidXNlciIsInBhc3N3b3JkIjoiJDJiJDEwJHlvcUwvNFJ0ZmJMbUFRVFpwZTgwQy5PV0E2MWhBMFRBZUNkOXhyTDZNSnVKS2duRGczVmEyIiwiX192IjowfSwiaWF0IjoxNzI2NTI4MTAzLCJleHAiOjE3MjY2MTQ1MDN9.XLACcPsEM0-iV1qlTC3AdV3ns_o2S723K6tH9z_vVfA"
+}
+
+
+####################################################
+PROFILE
+http://localhost:8080/profile
+Perfil del Usuario - Registro
+Nombre: cri
+Apellido: cri
+Email: cri@email.com
+Edad: 40
+Rol: user
+Cerrar Sesión
+
+
+
+####################################################
+GET localhost:8080/current
+{
+    "status": "success",
+    "payload": {
+        "_id": "66e8b81c0cacf9ce26f1042e",
+        "first_name": "cri",
+        "last_name": "cri",
+        "email": "cri@email.com",
+        "age": 40,
+        "role": "user",
+        "password": "$2b$10$yoqL/4RtfbLmAQTZpe80C.OWA61hA0TAeCd9xrL6MJuJKgnDg3Va2",
+        "__v": 0
+    }
+}
+
