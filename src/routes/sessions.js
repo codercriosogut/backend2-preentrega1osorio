@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/register', passport.authenticate('register', { failureRedirect: '/failregister' }), async (req, res) => {
     const user = req.user;
-    const access_token = generateToken(user); // test token
+    const access_token = generateToken(user);
     res.status(201).send({ status: "success", message: "Usuario registrado", access_token });
 });
 
@@ -27,7 +27,7 @@ router.post('/login', passport.authenticate('login', { failureRedirect: '/faillo
         email: req.user.email,
         age: req.user.age
     }
-    const access_token = generateToken(req.user); // test token
+    const access_token = generateToken(req.user);
     res.send({ status: "success", payload: req.user, access_token });
 });
 

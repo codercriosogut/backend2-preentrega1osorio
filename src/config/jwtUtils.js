@@ -1,12 +1,10 @@
 import jwt from 'jsonwebtoken';
 
 const PRIVATE_KEY = 'secretkey'
-
 const generateToken = (user) => {
     const token = jwt.sign({ user }, PRIVATE_KEY, { expiresIn: '24h' })
     return token
 }
-
 const authToken = (req, res, next) => {
     const authHeader = req.headers.authorization
     if (!authHeader) return res.status(401).send({ error: 'No autenticado' })

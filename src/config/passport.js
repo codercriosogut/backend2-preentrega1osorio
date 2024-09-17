@@ -3,9 +3,7 @@ import local from "passport-local";
 import userService from './schemaUser.js';
 import { createHash, isValidPassword } from './bcryptUtils.js';
 
-
 const localStrategy = local.Strategy;
-
 const initializePassport = () => {
     passport.use('register', new localStrategy({
         passReqToCallback: true,
@@ -33,7 +31,6 @@ const initializePassport = () => {
         }
     }
     ))
-    //fin
 
     passport.serializeUser((user, done) => {
         done(null, user._id);
@@ -59,7 +56,5 @@ const initializePassport = () => {
     }))
 
 }
-
-
 
 export default initializePassport
