@@ -14,4 +14,3 @@ const userSchema = new mongoose.Schema({
 const firstCollection = mongoose.model(userCollection, userSchema);
 
 export default firstCollection
-

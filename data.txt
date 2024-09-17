@@ -16,6 +16,8 @@ src/views/profile.hbs
 src/views/register.hbs
 src/views/layouts/main.hbs
 
+
+
 //Nombre del archivo: package.json
 {
   "name": "v1",
@@ -31,7 +33,6 @@ src/views/layouts/main.hbs
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.3",
     "connect-mongo": "^5.1.0",
     "express": "^4.21.0",
     "express-handlebars": "^8.0.1",
@@ -42,6 +43,7 @@ src/views/layouts/main.hbs
     "passport-local": "^1.0.0"
   }
 }
+
 
 //Nombre del archivo: src/app.js
 import express from 'express';
@@ -54,7 +56,6 @@ import sessionsRouter from './routes/sessions.js';
 import viewsRouter from './routes/views.js';
 import initializePassport from './config/passport.js';
 import { generateToken, authToken } from './config/jwtUtils.js';
-
 
 const app = express()
 const port = 8080
@@ -79,7 +80,6 @@ app.use(session({
     })
 }))
 
-
 initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
@@ -91,7 +91,6 @@ app.get("/current", authToken, (req, res) => {
     res.send({ status: "success", payload: req.user });
 })
 
-
 app.listen(port, () => console.log(`Server running on port ${port}`))
 
 
@@ -99,13 +98,9 @@ app.listen(port, () => console.log(`Server running on port ${port}`))
 
 //Nombre del archivo: src/config/bcryptUtils.js
 import bcrypt from 'bcrypt';
-
-// hashear la contraseña
 export const createHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-
-
-// validad la contraseña
 export const isValidPassword = (user, password) => bcrypt.compareSync(password, user.password)
+
 
 
 //Nombre del archivo: src/config/connectMongodb.js
@@ -122,16 +117,16 @@ db.once('open', () => {
 
 export default db;
 
+
+
 //Nombre del archivo: src/config/jwtUtils.js
 import jwt from 'jsonwebtoken';
 
 const PRIVATE_KEY = 'secretkey'
-
 const generateToken = (user) => {
     const token = jwt.sign({ user }, PRIVATE_KEY, { expiresIn: '24h' })
     return token
 }
-
 const authToken = (req, res, next) => {
     const authHeader = req.headers.authorization
     if (!authHeader) return res.status(401).send({ error: 'No autenticado' })
@@ -145,6 +140,8 @@ const authToken = (req, res, next) => {
 
 export { generateToken, authToken }
 
+
+
 //Nombre del archivo: src/config/middlewareAuth.js
 export const isAuthenticated = (req, res, next) => {
     if (req.session.user) {
@@ -153,7 +150,6 @@ export const isAuthenticated = (req, res, next) => {
         res.redirect('/login');
     }
 };
-
 export const isNotAuthenticated = (req, res, next) => {
     if (!req.session.user) {
         return next();
@@ -163,15 +159,14 @@ export const isNotAuthenticated = (req, res, next) => {
 };
 
 
+
 //Nombre del archivo: src/config/passport.js
 import passport from "passport";
 import local from "passport-local";
 import userService from './schemaUser.js';
 import { createHash, isValidPassword } from './bcryptUtils.js';
 
-
 const localStrategy = local.Strategy;
-
 const initializePassport = () => {
     passport.use('register', new localStrategy({
         passReqToCallback: true,
@@ -199,7 +194,6 @@ const initializePassport = () => {
         }
     }
     ))
-    //fin
 
     passport.serializeUser((user, done) => {
         done(null, user._id);
@@ -225,8 +219,6 @@ const initializePassport = () => {
     }))
 
 }
-
-
 
 export default initializePassport
 
@@ -261,7 +253,7 @@ const router = Router();
 
 router.post('/register', passport.authenticate('register', { failureRedirect: '/failregister' }), async (req, res) => {
     const user = req.user;
-    const access_token = generateToken(user); // Generar el token aquí
+    const access_token = generateToken(user);
     res.status(201).send({ status: "success", message: "Usuario registrado", access_token });
 });
 
@@ -282,7 +274,6 @@ router.post('/login', passport.authenticate('login', { failureRedirect: '/faillo
         email: req.user.email,
         age: req.user.age
     }
-    // Generar el token aquí
     const access_token = generateToken(req.user);
     res.send({ status: "success", payload: req.user, access_token });
 });
@@ -301,6 +292,7 @@ router.post('/logout', (req, res) => {
 });
 
 export default router;
+
 
 
 
@@ -325,8 +317,9 @@ router.get('/profile', isAuthenticated, (req, res) => {
 export default router;
 
 
+
 //Nombre del archivo: src/views/login.hbs
-<h2>Iniciar Sesión - Correo+Password</h2>
+<h2>Iniciar Sesión</h2>
 <form action="/api/sessions/login" method="POST">
     <label for="email">Email:</label>
     <input type="email" name="email" required>
@@ -336,8 +329,10 @@ export default router;
 </form>
 <a href="/register">Registrarse</a>
 
+
+
 //Nombre del archivo: src/views/profile.hbs
-<h2>Perfil del Usuario - Registro</h2>
+<h2>Perfil del Usuario</h2>
 <p>Nombre: {{user.first_name}}</p>
 <p>Apellido: {{user.last_name}}</p>
 <p>Email: {{user.email}}</p>
@@ -347,8 +342,10 @@ export default router;
     <button type="submit">Cerrar Sesión</button>
 </form>
 
+
+
 //Nombre del archivo: src/views/register.hbs
-<h2>Registro - Administrador</h2>
+<h2>Registro</h2>
 <form action="/api/sessions/register" method="POST">
     <label for="first_name">Nombre:</label>
     <input type="text" name="first_name" required>
@@ -368,6 +365,9 @@ export default router;
     <button type="submit">Registrarse</button>
 </form>
 <a href="/login">Iniciar sesión</a>
+
+
+
 
 //Nombre del archivo: src/views/layouts/main.hbs
 <!DOCTYPE html>
